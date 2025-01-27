@@ -1,11 +1,11 @@
-import { userRouter } from './user';
+import { orderRouter } from './order';
 import { Route } from 'sn-types-backend';
 
 export const routes: Route[] = [
     {
         method: 'use',
-        path: '/users',
+        path: '/orders',
         middleware: [],
-        handler: userRouter,
+        handler: orderRouter,
     },
 ];
