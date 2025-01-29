@@ -9,7 +9,7 @@ class OrderRepository {
     private url: string;
 
     constructor({ baseUrl, dbName }: { baseUrl: string; dbName: string }) {
-        this.url = baseUrl + '/' + dbName;
+        this.url = baseUrl+ dbName;
     }
 
     private async createOrderCB(newOrder: IOrder): Promise<Result<string>> {

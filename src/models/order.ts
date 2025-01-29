@@ -1,16 +1,12 @@
 import { Schema, model } from 'mongoose';
-import { IOrder, IProductCategory, IProductItem } from '@src/types';
+import { IOrder, IProductItem } from '@src/types';
 import { AnyType } from 'sn-types-general';
 
 const productItemSchema = new Schema<IProductItem>({
     name: { type: String, required: true },
-    quantity: { type: Number, required: true },
+    amount: { type: Number, required: true },
 });
 
-const productCategorySchema = new Schema<IProductCategory>({
-    category: { type: String, required: true },
-    items: [productItemSchema],
-});
 
 const orderSchema = new Schema<IOrder>({
     email: {
@@ -26,7 +22,7 @@ const orderSchema = new Schema<IOrder>({
     },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    products: [productCategorySchema],
+    products: [productItemSchema],
 });
 
 const order = model<IOrder>('Order', orderSchema);
